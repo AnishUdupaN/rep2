@@ -1,3 +1,4 @@
+#for taking multiple integers as input
 nums=list(map(int,input("Enter the numbers: ").split()))
 #nums=[int(i) for i in input("Enter the numbers: ").split()]
 numlist=[]
@@ -6,3 +7,6 @@ for i in range(len(nums)):
         numlist.append(nums[i])
 print(numlist)
 print(sum(numlist))
+
+
+
