@@ -1,51 +1,35 @@
-num_of_iterations=1
-#int(input())
-boys_list=[]
-girls_list=[]
-full_list=[]
-flag=False
-
+bglist=[]
+num_of_iterations=int(input())
 for i in range(num_of_iterations):
-    n=int(int(input()))
-    boys_list=list(map(int,input().split()[:n]))
-    girls_list=list(map(int,input().split()[:n]))
-    
-boys_list.sort()
-girls_list.sort()
-print(boys_list)
-print(girls_list)
+    llen=int(input())
+    bglist.append([sorted(list(map(int,input().split()[:llen]))),sorted(list(map(int,input().split()[:llen])))])
 
 
 
+print(bglist)
 
-if boys_list[0]<girls_list[0]:
-    for i in range(len(boys_list)):
-        full_list.append(boys_list[i])
-        full_list.append(girls_list[i])
-elif boys_list[0]>=girls_list[0]:
-    for i in range(len(boys_list)):
-        full_list.append(girls_list[i])
-        full_list.append(boys_list[i])
-
-
-for i in range(1,len(full_list)):
-    if full_list[i]>=full_list[i-1]:
-        flag=True
+for i in range(len(bglist)):
+    flag=False
+    full_list=[]
+    if bglist[i][0][0]>bglist[i][1][0]:
+        for j in range(len(bglist[i][0])):
+            full_list.append(bglist[i][1][j])
+            full_list.append(bglist[i][0][j])
     else:
-        flag=False
-if flag:
-    print('YES')
-else:
-    print("NO")
+        for j in range(len(bglist[i][0])):
+            full_list.append(bglist[i][0][j])
+            full_list.append(bglist[i][1][j])
+
+    print(full_list)
 
 
-
-
-
-
-
-
-
-[5, 6, 8, 9]
-[0, 3, 5, 7]
-[0, 5, 3, 6, 7, 9]
+    for i in range(1,len(full_list)):
+        if full_list[i]>=full_list[i-1]:
+            flag=True
+        else:
+            flag=False
+            break
+    if flag:
+        print('YES')
+    else:
+        print("NO")
