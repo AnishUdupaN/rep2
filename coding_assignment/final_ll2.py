@@ -20,8 +20,8 @@ class LinkedList:
             print(current.data,end="  ")
             current=current.next
         print()
-def compare(self,list2):
-    current1=self.head
+def compare(list1,list2):
+    current1=list1.head
     while current1:
         current2=list2.head
         while current2:
