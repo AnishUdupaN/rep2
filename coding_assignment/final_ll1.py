@@ -104,35 +104,7 @@ class LinkedList:
         print(f"Node at position {pos} has been removed.")
 
 
-# Driver code
 ll = LinkedList()
-ll.insert_at_rear(10)
-ll.insert_at_rear(20)
-ll.insert_at_rear(30)
-print("Linked List after adding nodes at rear:")
-ll.printit()
-
-ll.insert_at_pos(1, 15)
-print("Linked List after adding node with value 15 at position 1:")
-ll.printit()
-
-ll.delete_at_pos(2)
-print("Linked List after deleting node at position 2:")
-ll.printit()
-
-ll.insert_at_front(5)
-print("Linked List after inserting node with value 5 at the front:")
-ll.printit()
-
-ll.delete_at_front()
-print("Linked List after deleting node at the front:")
-ll.printit()
-
-ll.delete_at_rear()
-print("Linked List after deleting node at the rear:")
-ll.printit()
-
-# Menu
 while True:
     print("\nMenu:")
     print("1. Insert at front")
