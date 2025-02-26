@@ -1,0 +1,123 @@
+to log in:
+	mysql -u root -p
+OR
+	mysql -u root -p data1	/*where data1 is the database to be used*/
+
+to create a database:
+	create database name1;
+
+
+to use the database:
+	use name1;
+
+
+to list the databases:
+	show tables;
+
+
+to create a table:
+	create table table1(
+    	    ->  id int auto_increment primary key,
+	    -> name varchar(36),
+	    -> email varchar(36),
+	    -> age int,
+	    -> bday date,
+	    -> gender varchar(11));
+
+
+
+create table table1(
+    	    ->  id int auto_increment,
+	    -> name varchar(36),
+	    -> email varchar(36),
+	    -> age int,
+	    -> bday date,
+	    -> gender varchar(11),
+	    -> primary key (id));
+
+
+to add rows into the table:
+	insert into table1 (id, name, email, age, bday, gender)
+	    -> values
+	    -> (1001, 'Aarav Sharma', 'aarav.sharma@example.com', 25, '1999-05-12', 'Male'),
+	    -> (1002, 'Isha Gupta', 'isha.gupta@example.com', 28, '1996-03-19', 'Female'),
+	    -> (1003, 'Vihaan Singh', 'vihaan.singh@example.com', 30, '1994-07-22', 'Male'),
+	    -> (1004, 'Mira Patel', 'mira.patel@example.com', 24, '2000-01-05', 'Female'),
+	    -> (1005, 'Arjun Nair', 'arjun.nair@example.com', 27, '1997-11-11', 'Male'),
+	    -> (1006, 'Ananya Rao', 'ananya.rao@example.com', 29, '1995-08-26', 'Female'),
+	    -> (1007, 'Kabir Mehta', 'kabir.mehta@example.com', 26, '1998-12-17', 'Male');
+
+
+to print the table:
+	select * from table1;
+
+
+to print the table list:
+	show tables;
+
+to filter the table:
+	SELECT id, first_name, last_name, email, age, bday
+	FROM table1
+	WHERE gender = 'Male';
+
+
+to add a new column:
+	ALTER TABLE table1
+	    -> ADD COLUMN phone_number bigint;
+
+
+to change the row values:
+UPDATE table1
+SET phone_number = CASE id
+    WHEN 1001 THEN '9876543210'
+    WHEN 1002 THEN '9876543211'
+    WHEN 1003 THEN '9876543212'
+    WHEN 1004 THEN '9876543213'
+    WHEN 1005 THEN '9876543214'
+    WHEN 1006 THEN '9876543215'
+    WHEN 1007 THEN '9876543216'
+    WHEN 1008 THEN '9876543217'
+    WHEN 1009 THEN '9876543218'
+    WHEN 1010 THEN '9876543219'
+    WHEN 1011 THEN '9876543220'
+    WHEN 1012 THEN '9876543221'
+    WHEN 1013 THEN '9876543222'
+    WHEN 1014 THEN '9876543223'
+    WHEN 1015 THEN '9876543224'
+    WHEN 1016 THEN '9876543225'
+    WHEN 1017 THEN '9876543226'
+    WHEN 1018 THEN '9876543227'
+    WHEN 1019 THEN '9876543228'
+    WHEN 1020 THEN '9876543229'
+    WHEN 1021 THEN '9876543230'
+    WHEN 1022 THEN '9876543231'
+    WHEN 1023 THEN '9876543232'
+    WHEN 1024 THEN '9876543233'
+    WHEN 1025 THEN '9876543234'
+END
+WHERE id IN (1001, 1002, 1003, 1004, 1005, 1006, 1007, 1008, 1009, 1010, 1011, 1012, 1013, 1014, 1015, 1016, 1017, 1018, 1019, 1020, 1021, 1022, 1023, 1024, 1025);
+
+
+to change row value:
+	UPDATE table1
+		SET phone_number = '9876543210',
+		email = 'new.email@example.com'
+	WHERE id = 1001;
+
+		WHERE id = 1001;
+
+
+to print specific rows:
+	SELECT * FROM employees
+		WHERE id IN (1001, 1002, 1003);
+OR
+
+	SELECT * FROM employees
+		WHERE age > 30;
+OR
+	SELECT id, first_name, last_name, email, age, bday, gender FROM employees
+	LIMIT 10;
+	/*prints first 10 rows*/
+
+to delete a row:
+	 delete from table1 where id=1100;
